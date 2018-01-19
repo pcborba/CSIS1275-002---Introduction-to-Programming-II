@@ -1,0 +1,144 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+
+public class Test extends JFrame {
+
+	private int total;
+	private final int WIN_WIDTH = 800, WIN_HEIGHT =400;
+	private JButton btnPress;
+	private JButton btnRed;
+	private JRadioButton btn30;
+	private JRadioButton btn100;
+	private ButtonGroup grpBtn;
+	private JTextField txtTest;
+	private JLabel lblTest;
+	private JPanel panNorth;
+	private JPanel panSouth;
+	private JPanel panEast;
+	private JPanel panWest;
+
+	
+	
+	public Test()
+	{
+		setSize(WIN_WIDTH, WIN_HEIGHT);
+		setTitle("Test Screen");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		setLayout(new BorderLayout());
+		
+		PanelNorth();
+		PanelSouth();
+		PanelEast();
+		PanelWest();
+		
+		add(panNorth, BorderLayout.NORTH);
+		add(panSouth, BorderLayout.SOUTH);
+		add(panEast, BorderLayout.EAST);
+		add(panWest, BorderLayout.WEST);
+		
+	}
+	
+	
+	private void PanelNorth()
+	{
+		panNorth = new JPanel();
+		lblTest = new JLabel("Test of the label !!!");
+		panNorth.add(lblTest);
+	}
+	
+	private void PanelSouth()
+	{
+		panSouth = new JPanel();
+		txtTest = new JTextField("Type a value here to improve your balance");
+		panSouth.add(txtTest);
+	}
+	
+	
+	private void PanelEast()
+	{
+		panEast = new JPanel();
+		btnRed =  new JButton("Press here to change color to Red");
+		
+		panEast.add(btnRed);
+		btnRed.addActionListener(new CustomListener());
+	}
+	
+	private void PanelWest()
+	{
+		panWest = new JPanel();
+		btn30 = new JRadioButton("CA$ 30");
+		btn100 = new JRadioButton("CA$ 100");
+		grpBtn = new ButtonGroup();
+		grpBtn.add(btn30);
+		grpBtn.add(btn100);
+		btnPress = new JButton("Press here to add value to your balance");
+		
+		panWest.add(btn30);
+		panWest.add(btn100);
+				
+		btn30.addActionListener(new CustomListener());
+		btn100.addActionListener(new CustomListener());
+		btnPress.addActionListener(new CustomListener());
+	}
+
+	
+	private class CustomListener implements ActionListener
+	{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			if(e.getSource()==btnRed)
+			{
+				panWest.setBackground(Color.RED);
+				panEast.setBackground(Color.RED);
+				panNorth.setBackground(Color.RED);
+				panSouth.setBackground(Color.RED);
+				
+				panWest.setForeground(Color.WHITE);
+				panEast.setForeground(Color.WHITE);
+				panNorth.setForeground(Color.WHITE);
+				panSouth.setForeground(Color.WHITE);
+			}
+			
+			if(e.getSource()==btn30)
+			{
+				total += 30;
+				JOptionPane.showMessageDialog(null, "30 added to your balance! Now your balance is "+total);
+			}
+			if(e.getSource()==btn100)
+			{
+				total += 100;
+				JOptionPane.showMessageDialog(null, "100 added to your balance. your balance is "+total);
+			}
+			
+			if(e.getSource()==btnPress)
+			{
+				try
+				{
+					if(txtTest.getText()!="");
+					{
+						total += Integer.parseInt(txtTest.getText());
+						JOptionPane.showMessageDialog(null, "Now your balance is "+total);
+					}
+						
+				}
+				catch(NumberFormatException ex)
+				{
+					JOptionPane.showMessageDialog(null, "Type an integere number");
+				}	
+			}
+			
+			
+			
+			
+		}
+		
+	}
+	
+}

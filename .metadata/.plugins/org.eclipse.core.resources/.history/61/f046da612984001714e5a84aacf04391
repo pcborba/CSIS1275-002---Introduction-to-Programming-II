@@ -1,0 +1,92 @@
+import java.awt.*;
+
+import javax.swing.*;
+
+public class TestGui extends JFrame {
+
+	private final int WIN_WIDTH = 600, WIN_HEIGHT = 200;
+	
+	private JLabel lblTest;
+	private JTextField txtTest;
+	private JPanel panSouth;
+	private JPanel panNorth;
+	private JPanel panEast;
+	private JButton btnPress;
+	private JButton btnRed;
+	private JButton btnBlue;
+	private JRadioButton btn50;
+	private JRadioButton btn30;
+	
+	public TestGui()
+	{
+		PanelSouth();
+		PanelNorth();
+		PanelEast();
+		
+		setLayout(new BorderLayout());
+		setTitle("This is a test of form using GUI in JAVA");
+		
+		add(panSouth, BorderLayout.SOUTH);
+		add(panNorth, BorderLayout.NORTH);
+		add(panEast);
+		
+		setSize(WIN_WIDTH, WIN_HEIGHT);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		
+	}
+	
+	public void PanelSouth()
+	{
+		panSouth = new JPanel();
+		
+		btnPress = new JButton("Press here");
+		
+		panSouth.add(btnPress);
+		
+		panSouth.setLayout(new FlowLayout(FlowLayout.RIGHT) );
+		
+		panSouth.setBackground(Color.CYAN);
+		
+		
+		//panSouth.setLayout(FlowLayout.CENTER);
+		
+	}
+	
+	public void PanelNorth()
+	{
+		panNorth = new JPanel();
+		btnRed = new JButton("Red color");
+		btnBlue = new JButton("Blue Color");
+		
+		
+		panNorth.setLayout(new FlowLayout(FlowLayout.LEFT));
+		
+		
+		panNorth.add(btnRed, new FlowLayout(FlowLayout.RIGHT));
+		
+		
+		
+	}
+	
+	public void PanelEast()
+	{
+		panEast = new JPanel();
+		btn30 = new JRadioButton("30 cad");
+		btn50 = new JRadioButton("50 cad");
+		lblTest = new JLabel("This Form is just a test");
+		
+		panEast.add(lblTest, new FlowLayout(FlowLayout.CENTER));
+		panEast.add(btn30, new FlowLayout(FlowLayout.RIGHT));
+		panEast.add(btn50, new FlowLayout(FlowLayout.CENTER));
+		
+		panEast.setBackground(Color.YELLOW);
+		
+	}
+	public static void main(String[] args)
+	{
+		new TestGui();
+	}
+	
+	
+}

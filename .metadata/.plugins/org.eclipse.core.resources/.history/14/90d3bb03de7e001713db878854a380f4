@@ -1,0 +1,19 @@
+import javax.swing.*;
+
+public class TopPanel extends JPanel{
+	
+	private JButton redButton;
+	private JButton orangeButton;
+	private JButton yellowButton;
+
+	public TopPanel()
+	{
+		redButton = new JButton("Red");
+		orangeButton = new JButton("Orange");
+		yellowButton = new JButton("Yellow");
+		
+		add(redButton);
+		add(orangeButton);
+		add(yellowButton);
+	}
+}

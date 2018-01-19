@@ -1,0 +1,33 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class ColorFactory extends JFrame {
+
+	private JPanel window;
+	private final int WINDOWS_WIDTH = 480;
+	private final int WINDOWS_HEIGHT = 640;
+	private JPanel BottomP;
+	private JPanel TopP;
+	private JPanel MiddleP;
+	
+	public ColorFactory()
+	{
+		window = new JPanel();
+		this.setSize(WINDOWS_WIDTH, WINDOWS_HEIGHT);
+		this.setTitle("Color Factory");
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		BottomP = new BottomPanel();
+		TopP = new TopPanel();
+		MiddleP = new MiddlePanel();
+		
+		window.setLayout(new GridLayout(3,1));
+		
+		window.add(TopP);
+		window.add(MiddleP);
+		window.add(BottomP);
+		
+		
+	}
+	
+}

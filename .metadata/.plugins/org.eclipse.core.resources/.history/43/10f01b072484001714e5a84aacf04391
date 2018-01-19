@@ -1,0 +1,49 @@
+import java.awt.FlowLayout;
+
+import javax.swing.*;
+
+public class TestGui {
+
+	private final int WIN_WIDTH = 600, WIN_HEIGHT = 200;
+	
+	private JFrame frmWindow;
+	private JTextField txtTest;
+	private JPanel panSouth;
+	private JPanel panNorth;
+	private JButton btnPress;
+	private JButton btnRed;
+	private JButton btnBlue;
+	private JRadioButton btn50;
+	private JRadioButton btn30;
+	
+	public TestGui()
+	{
+		frmWindow = new JFrame();
+		PanelSouth();
+		
+		frmWindow.add(panSouth);
+		
+		frmWindow.setSize(WIN_WIDTH, WIN_HEIGHT);
+		frmWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmWindow.setVisible(true);
+		
+	}
+	
+	public void PanelSouth()
+	{
+		panSouth = new JPanel();
+		
+		btnPress = new JButton("Press here");
+		
+		//panSouth.setLayout(FlowLayout.CENTER);
+		
+	}
+	
+	
+	public static void main(String[] args)
+	{
+		new TestGui();
+	}
+	
+	
+}

@@ -1,0 +1,151 @@
+package gui;
+
+import java.awt.Color;
+import java.awt.Event;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+public class gui extends JFrame {
+	
+	
+	private JPanel window;
+	private final int WIN_WIDTH = 480;
+	private final int WIN_HEIGHT = 480;
+	
+	private JPanel bottomPanel;
+	private JPanel middlePanel;
+	private JPanel topPanel;
+	
+	private JButton yellowBtn;
+	private JButton redBtn;
+	private JButton orangeBtn;
+	
+	private JRadioButton cyanBtn;
+	private JRadioButton greenBtn;
+	private	JRadioButton blueBtn;
+	private ButtonGroup grpButton;
+	
+	private JLabel lblContent = new JLabel("Test message on middle panel!!!");
+	
+	public gui()
+	{
+		window = new JPanel();
+		window.setLayout(new GridLayout(3,1));
+		
+		this.setSize(WIN_WIDTH, WIN_HEIGHT);
+		this.setTitle("Color Factory");
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		TopPanel();
+		MiddlePanel();
+		BottomPanel();
+		
+		window.add(topPanel);
+		window.add(middlePanel);
+		window.add(bottomPanel);
+		
+		this.add(window);
+
+		setVisible(true);
+		
+	}
+	
+	public void TopPanel()
+	{
+		topPanel = new JPanel();
+		
+		yellowBtn = new JButton("Yellow");
+		redBtn = new JButton("Red");
+		orangeBtn = new JButton("Orange");
+		
+		topPanel.add(yellowBtn);
+		topPanel.add(redBtn);
+		topPanel.add(orangeBtn);
+		
+		yellowBtn.addActionListener(new ButtonListener());
+		redBtn.addActionListener(new ButtonListener());
+		orangeBtn.addActionListener(new ButtonListener());
+		
+		topPanel.setBackground(Color.magenta);
+	}
+	
+	public void MiddlePanel()
+	{
+		middlePanel = new JPanel();
+		
+		middlePanel.add(lblContent);
+		
+		middlePanel.setBackground(Color.WHITE);
+		middlePanel.setLayout(new GridLayout(1,1));
+		middlePanel.setVisible(true);
+	}
+	
+	public void BottomPanel()
+	{
+		bottomPanel =  new JPanel();
+		grpButton = new ButtonGroup();
+		
+		cyanBtn = new JRadioButton("Cyan");
+		greenBtn = new JRadioButton("Green");
+		blueBtn = new JRadioButton("Blue");
+		
+		bottomPanel.add(cyanBtn);
+		bottomPanel.add(greenBtn);
+		bottomPanel.add(blueBtn);
+		
+		grpButton.add(cyanBtn);
+		grpButton.add(greenBtn);
+		grpButton.add(blueBtn);
+				
+		bottomPanel.setBackground(Color.black);
+		
+		cyanBtn.addActionListener(new ButtonListener());
+		greenBtn.addActionListener(new ButtonListener());
+		blueBtn.addActionListener(new ButtonListener());
+		
+	}
+	
+
+	private class ButtonListener implements ActionListener
+	{
+
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+			if(e.getSource() == cyanBtn)
+			{
+				lblContent.setForeground(Color.cyan);
+			}
+			else if(e.getSource() == greenBtn)
+			{
+				lblContent.setForeground(Color.green);
+			}
+			else if(e.getSource() == blueBtn)
+			{
+				lblContent.setForeground(Color.blue);
+			}
+			
+			if(e.getSource() == yellowBtn)
+			{
+				middlePanel.setBackground(Color.yellow);
+			}
+			if(e.getSource() == orangeBtn)
+			{
+				middlePanel.setBackground(Color.orange);
+			}
+			if(e.getSource() == redBtn)
+			{
+				middlePanel.setBackground(Color.red);
+			}
+		}
+	}
+	
+	public static void main(String[] args)
+	{
+		gui w1 = new gui();
+	}
+	
+}

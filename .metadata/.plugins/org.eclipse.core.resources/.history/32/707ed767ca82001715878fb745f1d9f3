@@ -1,0 +1,89 @@
+package gui;
+
+import java.awt.Color;
+import java.awt.GridLayout;
+
+import javax.swing.*;
+
+public class gui extends JFrame {
+	
+	
+	private JPanel window;
+	private final int WIN_WIDTH = 480;
+	private final int WIN_HEIGHT = 480;
+	
+	private JPanel bottomPanel;
+	private JPanel middlePanel;
+	private JPanel topPanel;
+	
+	private JButton yellowBtn;
+	private JButton redBtn;
+	private JButton orangeBtn;
+	
+	private JRadioButton cyanBtn;
+	private JRadioButton greenBtn;
+	private	JRadioButton blueBtn;
+	private ButtonGroup grpButton;
+	
+	private JLabel lblContent = new JLabel("Test message on middle panel!!!");
+	
+	
+	private JLabel msgLbl;
+	
+	
+
+	public gui()
+	{
+		window = new JPanel();
+		window.setLayout(new GridLayout(3,1));
+		
+		this.setSize(WIN_WIDTH, WIN_HEIGHT);
+		this.setTitle("Color Factory");
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		TopPanel();
+		MiddlePanel();
+		
+		window.add(topPanel);
+		window.add(middlePanel);
+		
+		this.add(window);
+
+		setVisible(true);
+		
+	}
+	
+	public void TopPanel()
+	{
+		topPanel = new JPanel();
+		
+		yellowBtn = new JButton("Yellow");
+		redBtn = new JButton("Red");
+		orangeBtn = new JButton("Orange");
+		
+		topPanel.add(yellowBtn);
+		topPanel.add(redBtn);
+		topPanel.add(orangeBtn);
+		
+		topPanel.setBackground(Color.magenta);
+		topPanel.setVisible(true);
+	}
+	
+	public void MiddlePanel()
+	{
+		middlePanel = new JPanel();
+		
+		middlePanel.add(lblContent);
+		
+		middlePanel.setBackground(Color.WHITE);
+		middlePanel.setLayout(new GridLayout(1,1));
+		middlePanel.setVisible(true);
+	
+	}
+	
+	public static void main(String[] args)
+	{
+		gui w1 = new gui();
+	}
+	
+}

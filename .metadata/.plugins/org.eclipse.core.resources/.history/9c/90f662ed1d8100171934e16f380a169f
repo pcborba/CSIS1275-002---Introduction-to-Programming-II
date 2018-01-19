@@ -1,0 +1,57 @@
+package gui;
+
+import java.awt.Color;
+
+import javax.swing.*;
+
+public class gui extends JFrame {
+	
+	
+	private JFrame window;
+	
+	private JPanel bottomPanel;
+	private JPanel middlePanel;
+	private JPanel topPanel;
+	
+	private JButton yellowBtn;
+	private JButton redBtn;
+	private JButton orangeBtn;
+	
+	private JLabel msgLbl;
+	
+	
+
+	public gui()
+	{
+		window = new JFrame();
+		bottomPanel = new JPanel();
+		middlePanel = new JPanel();
+		topPanel = new JPanel();
+		yellowBtn = new JButton("Yellow");
+		redBtn = new JButton("Red");
+		orangeBtn = new JButton("Orange");
+		msgLbl = new JLabel("Test of label, Test of label, Test of label...");
+		
+		topPanel.add(yellowBtn);
+		topPanel.add(redBtn);
+		topPanel.add(orangeBtn);
+		middlePanel.add(msgLbl);
+		
+		topPanel.setBackground(Color.magenta);
+		middlePanel.setBackground(Color.WHITE);
+		bottomPanel.setBackground(Color.DARK_GRAY);
+		
+		
+		
+		window.add(topPanel);
+		window.add(middlePanel);
+		window.add(bottomPanel);
+		
+	}
+	
+	public static void main(String[] args)
+	{
+		gui w1 = new gui();
+	}
+	
+}

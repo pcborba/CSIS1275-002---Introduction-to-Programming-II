@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>WindowBuilder</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>src/resources/ic_build_black_24dp_2x.png</name>
+			<type>1</type>
+			<location>C:/Users/pcbor/OneDrive/Douglas College/CSIS1275-002 - Introduction to Programming II/Projects/WindowBuilder/ic_build_black_24dp_2x.png</location>
+		</link>
+		<link>
+			<name>src/resources/ic_fingerprint_black_24dp_1x.png</name>
+			<type>1</type>
+			<location>C:/Users/pcbor/OneDrive/Douglas College/CSIS1275-002 - Introduction to Programming II/Projects/WindowBuilder/ic_fingerprint_black_24dp_1x.png</location>
+		</link>
+		<link>
+			<name>src/resources/ic_fingerprint_black_24dp_2x.png</name>
+			<type>1</type>
+			<location>C:/Users/pcbor/OneDrive/Douglas College/CSIS1275-002 - Introduction to Programming II/Projects/WindowBuilder/ic_fingerprint_black_24dp_2x.png</location>
+		</link>
+	</linkedResources>
+</projectDescription>

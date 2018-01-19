@@ -1,0 +1,12 @@
+import javax.swing.*;
+
+public class MiddlePanel extends JPanel {
+	
+	private JLabel lblContent =  new JLabel("Top buttons change the panel color and bottom radio change the text color");
+	
+	public MiddlePanel()
+	{
+		add(lblContent);
+	}
+
+}

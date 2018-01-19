@@ -1,0 +1,122 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class ColorFactory extends JFrame {
+
+	private JPanel window;
+	private JPanel BottomPanel;
+	private JPanel MiddlePanel;
+	private JPanel TopPanel;
+		
+	private final int WINDOWS_WIDTH = 680;
+	private final int WINDOWS_HEIGHT = 340;
+	
+	private JRadioButton cyanRadio;
+	private JRadioButton greenRadio;
+	private JRadioButton blueRadio;
+	private ButtonGroup grpButton;
+		
+	private JButton redButton;
+	private JButton orangeButton;
+	private JButton yellowButton;
+	
+	private JLabel lblContent;
+	
+	
+	public ColorFactory()
+	{
+		window = new JPanel();
+		this.setSize(WINDOWS_WIDTH, WINDOWS_HEIGHT);
+		this.setTitle("Color Factory");
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		BottomPanel();
+		TopPanel();
+		MiddlePanel();
+		
+		window.setLayout(new GridLayout(3,1));
+		
+		window.add(TopPanel);
+		window.add(MiddlePanel);
+		window.add(BottomPanel);
+		
+		add(window);
+		
+		setVisible(true);
+	}
+	
+	public void BottomPanel()
+	{
+		BottomPanel = new JPanel();
+		
+		grpButton = new ButtonGroup();
+		
+		cyanRadio = new JRadioButton("Cyan");
+		greenRadio = new JRadioButton("Green");
+		blueRadio = new JRadioButton("Red");
+		
+		blueRadio.isSelected();
+				
+		BottomPanel.add(cyanRadio);
+		BottomPanel.add(greenRadio);
+		BottomPanel.add(blueRadio);
+		
+		grpButton.add(cyanRadio);
+		grpButton.add(greenRadio);
+		grpButton.add(blueRadio);	
+	}
+	
+	public void TopPanel()
+	{
+		TopPanel = new JPanel();
+		
+		redButton = new JButton("Red");
+		orangeButton = new JButton("Orange");
+		yellowButton = new JButton("Yellow");
+		
+		TopPanel.add(redButton);
+		TopPanel.add(orangeButton);
+		TopPanel.add(yellowButton);
+		
+		yellowButton.addActionListener(new ButtonListener());
+		orangeButton.addActionListener(new ButtonListener());
+		redButton.addActionListener(new ButtonListener());
+	}
+	
+	public void MiddlePanel()
+	{	
+		MiddlePanel = new JPanel();
+		
+		lblContent = new JLabel("Top buttons change the panel color and bottom radio change the text color");
+		MiddlePanel.add(lblContent);
+	}
+
+	
+	private class ButtonListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e) 
+		{
+			if(e.getSource() == yellowButton)
+			{
+				MiddlePanel.setBackground(Color.YELLOW);
+			}
+			if(e.getSource() == orangeButton)
+			{
+				MiddlePanel.setBackground(Color.ORANGE);
+			}
+			if(e.getSource() == redButton)
+			{
+				MiddlePanel.setBackground(Color.RED);
+			}
+		}
+	}
+	
+	
+	public static void main(String[] args)
+	{
+		new ColorFactory();
+	}
+	
+}

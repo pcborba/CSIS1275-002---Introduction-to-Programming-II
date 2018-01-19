@@ -1,0 +1,79 @@
+import java.awt.*;
+
+import javax.swing.*;
+
+public class TestGui extends JFrame {
+
+	private final int WIN_WIDTH = 600, WIN_HEIGHT = 200;
+	
+	private JFrame frmWindow;
+	private JTextField txtTest;
+	private JPanel panSouth;
+	private JPanel panNorth;
+	private JButton btnPress;
+	private JButton btnRed;
+	private JButton btnBlue;
+	private JRadioButton btn50;
+	private JRadioButton btn30;
+	
+	public TestGui()
+	{
+		//frmWindow = new JFrame();
+		PanelSouth();
+		PanelNorth();
+		
+		setLayout(new GridLayout(1,2));
+		
+		
+		add(panSouth);
+		add(panNorth);
+		
+		setSize(WIN_WIDTH, WIN_HEIGHT);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		
+	}
+	
+	public void PanelSouth()
+	{
+		panSouth = new JPanel();
+		
+		btnPress = new JButton("Press here");
+		
+		panSouth.add(btnPress);
+		
+		panSouth.setLayout(new FlowLayout(FlowLayout.RIGHT) );
+		
+		
+		//panSouth.setLayout(FlowLayout.CENTER);
+		
+	}
+	
+	public void PanelNorth()
+	{
+		panNorth = new JPanel();
+		btnRed = new JButton("Red color");
+		btnBlue = new JButton("Blue Color");
+		btn30 = new JRadioButton("30 cad");
+		btn50 = new JRadioButton("50 cad");
+		txtTest = new JTextField("This Form is just a test");
+		
+		panNorth.setLayout(new FlowLayout(FlowLayout.LEFT));
+		
+		panNorth.add(txtTest, new FlowLayout(FlowLayout.CENTER));
+		panNorth.add(btn30, new FlowLayout(FlowLayout.RIGHT));
+		panNorth.add(btn50, new FlowLayout(FlowLayout.CENTER));
+		panNorth.add(btnRed, new FlowLayout(FlowLayout.RIGHT));
+		
+		
+		
+	}
+	
+	
+	public static void main(String[] args)
+	{
+		new TestGui();
+	}
+	
+	
+}

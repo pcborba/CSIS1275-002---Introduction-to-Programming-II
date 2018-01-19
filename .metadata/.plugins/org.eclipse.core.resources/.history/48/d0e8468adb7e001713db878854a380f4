@@ -1,0 +1,30 @@
+import javax.swing.*;
+
+public class BottomPanel extends JPanel {
+
+	private JRadioButton cyanRadio; //= new JRadioButton("Cyan");
+	private JRadioButton greenRadio; //= new JRadioButton("Green");
+	private JRadioButton blueRadio; //= new JRadioButton("Red");
+	
+	private ButtonGroup grpButton = new ButtonGroup();
+	
+	
+	public BottomPanel()
+	{
+		cyanRadio = new JRadioButton("Cyan");
+		greenRadio = new JRadioButton("Green");
+		blueRadio = new JRadioButton("Red");
+		
+		blueRadio.isSelected();
+				
+		add(cyanRadio);
+		add(greenRadio);
+		add(blueRadio);
+		
+		grpButton.add(cyanRadio);
+		grpButton.add(greenRadio);
+		grpButton.add(blueRadio);
+		
+	}
+
+}
